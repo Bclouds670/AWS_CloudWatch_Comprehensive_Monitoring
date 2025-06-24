@@ -52,7 +52,7 @@ Filter by ServiceName = EC2, S3
 🔢 Number Widget:
 Shows total EstimatedCharges this month
 
-![Image](https://github.com/user-attachments/assets/a3eca031-821a-4aaf-ac1c-6609cfc92eb9)
+![Image](https://github.com/user-attachments/assets/64617908-9a3c-4ba1-bc97-0a511c7a8b30)
 ---
 
 2. Logs Dashboard
@@ -103,8 +103,7 @@ fields @timestamp, @message
 4. Save queries → Add to dashboard (Logs_Dashboard)
 Choose graph/table view as needed.
 
-![Image](https://github.com/user-attachments/assets/48f85bed-87f0-4d7d-a78b-59548df5f9e5)
-
+![Image](https://github.com/user-attachments/assets/251c632f-0803-410b-b34f-2ca6d57295d2)
 ---
 
 3. Network Performance Dashboard
@@ -146,8 +145,7 @@ Namespace: AWS/CloudFront
 
 3. Use line charts for trend clarity.
 
-![Image](https://github.com/user-attachments/assets/db9c2fb5-01e7-4d7e-97ba-5913a4ced39e)
----
+![Image](https://github.com/user-attachments/assets/3f64da2f-73e2-4baa-90ac-d8931fc48731)---
 
 4. Security & Compliance Dashboard
 
@@ -192,5 +190,4 @@ fields eventName, userIdentity.userName, errorCode
 
 3. Use table widgets for logs and gauges for counts.
 
-![Image](https://github.com/user-attachments/assets/36c2a96f-a635-4da0-8408-87dbfabc2df8)
----
+![Image](https://github.com/user-attachments/assets/291d557a-c83f-4623-b487-de155611c385)---
