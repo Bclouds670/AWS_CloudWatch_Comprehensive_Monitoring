@@ -1,0 +1,3 @@
+fields @timestamp, @message
+| filter @message like /failed login|unauthorized/i
+| sort @timestamp desc
