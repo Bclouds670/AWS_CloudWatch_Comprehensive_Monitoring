@@ -1,0 +1,4 @@
+fields @timestamp, @message
+| filter @message like /error/i
+| sort @timestamp desc
+| limit 20
