@@ -1,0 +1,3 @@
+fields @timestamp, latency, status
+| sort latency desc
+| limit 10
