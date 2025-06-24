@@ -1,0 +1,207 @@
+{
+  "Dashboards": [
+    {
+      "DashboardName": "Billing_Cost",
+      "Widgets": [
+        {
+          "type": "metric",
+          "x": 0,
+          "y": 0,
+          "width": 6,
+          "height": 6,
+          "properties": {
+            "metrics": [
+              [ "AWS/Billing", "EstimatedCharges", "ServiceName", "EC2" ],
+              [ "AWS/Billing", "EstimatedCharges", "ServiceName", "S3" ]
+            ],
+            "view": "timeSeries",
+            "stacked": false,
+            "region": "us-east-1",
+            "stat": "Sum",
+            "period": 86400
+          }
+        },
+        {
+          "type": "number",
+          "x": 6,
+          "y": 0,
+          "width": 6,
+          "height": 3,
+          "properties": {
+            "metrics": [
+              [ "AWS/Billing", "EstimatedCharges" ]
+            ],
+            "region": "us-east-1",
+            "stat": "Sum",
+            "period": 2592000
+          }
+        }
+      ]
+    },
+    {
+      "DashboardName": "Logs_Dashboard",
+      "Widgets": [
+        {
+          "type": "log",
+          "x": 0,
+          "y": 0,
+          "width": 12,
+          "height": 6,
+          "properties": {
+            "logGroupNames": [
+              "aws-cloudtrail-log-741344115901-4600bdc1",
+              "aws/lambda/log_function"
+            ],
+            "queryString": "fields @timestamp, @message | filter @message like /error/i | sort @timestamp desc | limit 20",
+            "region": "us-east-1"
+          }
+        },
+        {
+          "type": "log",
+          "x": 0,
+          "y": 6,
+          "width": 12,
+          "height": 6,
+          "properties": {
+            "logGroupNames": [
+              "aws-cloudtrail-log-741344115901-4600bdc1",
+              "aws/lambda/log_function"
+            ],
+            "queryString": "fields @timestamp, latency, status | sort latency desc | limit 10",
+            "region": "us-east-1"
+          }
+        },
+        {
+          "type": "log",
+          "x": 0,
+          "y": 12,
+          "width": 12,
+          "height": 6,
+          "properties": {
+            "logGroupNames": [
+              "aws-cloudtrail-log-741344115901-4600bdc1",
+              "aws/lambda/log_function"
+            ],
+            "queryString": "fields @timestamp, @message | filter @message like /Failed password/",
+            "region": "us-east-1"
+          }
+        }
+      ]
+    },
+    {
+      "DashboardName": "Network_Performance_Dashboard",
+      "Widgets": [
+        {
+          "type": "metric",
+          "x": 0,
+          "y": 0,
+          "width": 6,
+          "height": 6,
+          "properties": {
+            "metrics": [
+              [ "AWS/EC2", "NetworkIn", "InstanceId", "i-0c5a041a9252bea00" ],
+              [ "AWS/EC2", "NetworkOut", "InstanceId", "i-0c5a041a9252bea00" ]
+            ],
+            "view": "timeSeries",
+            "stacked": false,
+            "region": "us-east-1",
+            "stat": "Sum",
+            "period": 300
+          }
+        },
+        {
+          "type": "metric",
+          "x": 6,
+          "y": 0,
+          "width": 6,
+          "height": 6,
+          "properties": {
+            "metrics": [
+              [ "AWS/ApplicationELB", "HTTPCode_ELB_5XX_Count", "LoadBalancer", "myalb" ],
+              [ "AWS/ApplicationELB", "RequestCount", "LoadBalancer", "myalb" ]
+            ],
+            "view": "timeSeries",
+            "stacked": false,
+            "region": "us-east-1",
+            "stat": "Sum",
+            "period": 300
+          }
+        },
+        {
+          "type": "metric",
+          "x": 0,
+          "y": 6,
+          "width": 6,
+          "height": 6,
+          "properties": {
+            "metrics": [
+              [ "AWS/CloudFront", "BytesDownloaded", "DistributionId", "E2CSNYE5S26AYQ" ],
+              [ "AWS/CloudFront", "BytesUploaded", "DistributionId", "E2CSNYE5S26AYQ" ]
+            ],
+            "view": "timeSeries",
+            "stacked": false,
+            "region": "us-east-1",
+            "stat": "Sum",
+            "period": 300
+          }
+        }
+      ]
+    },
+    {
+      "DashboardName": "Security_Compliance_Dashboard",
+      "Widgets": [
+        {
+          "type": "metric",
+          "x": 0,
+          "y": 0,
+          "width": 6,
+          "height": 6,
+          "properties": {
+            "metrics": [
+              [ "AWS/GuardDuty", "FindingCount", "Severity", "High" ],
+              [ "AWS/GuardDuty", "FindingCount", "Severity", "Medium" ],
+              [ "AWS/GuardDuty", "FindingCount", "Severity", "Low" ]
+            ],
+            "view": "timeSeries",
+            "stacked": false,
+            "region": "us-east-1",
+            "stat": "Sum",
+            "period": 86400
+          }
+        },
+        {
+          "type": "metric",
+          "x": 6,
+          "y": 0,
+          "width": 6,
+          "height": 6,
+          "properties": {
+            "metrics": [
+              [ "AWS/Config", "Compliance", "ResourceType", "AWS::EC2::Instance" ]
+            ],
+            "view": "timeSeries",
+            "stacked": false,
+            "region": "us-east-1",
+            "stat": "Maximum",
+            "period": 86400
+          }
+        },
+        {
+          "type": "log",
+          "x": 0,
+          "y": 6,
+          "width": 6,
+          "height": 6,
+          "properties": {
+            "logGroupNames": [
+              "aws-cloudtrail-log-741344115901-4600bdc1",
+              "aws/lambda/log_function"
+            ],
+            "queryString": "fields eventName, userIdentity.userName, errorCode | filter eventName = 'ConsoleLogin' and errorMessage like /failed/i",
+            "region": "us-east-1"
+          }
+        }
+      ]
+    }
+  ]
+}
